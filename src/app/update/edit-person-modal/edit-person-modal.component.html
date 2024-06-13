@@ -1,0 +1,61 @@
+<!-- 
+<div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Modifier Personne</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="name" class="col-form-label">Name:</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="name" class="form-control" [(ngModel)]="person.nom" name="name" required>
+          </div>
+          <div class="col-auto">
+            <label for="name" class="col-form-label">LastName:</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="name" class="form-control" [(ngModel)]="person.lastName" name="lastName" required>
+          </div>
+          <div class="col-auto">
+            <label for="name" class="col-form-label">Age:</label>
+           </div>
+          <div class="col-auto">
+            <input type="text" id="name" class="form-control" [(ngModel)]="person.age" name="age" required>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Valider</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+   -->
+   <h2>{{ personneForm.get('id')?.value === 0 ? 'Ajouter' : 'Modifier' }} une
+    Personne</h2>
+  <form [formGroup]="personneForm" (ngSubmit)="sauvegarderPersonne()">
+    <label>
+      Nom:
+      <input class="form-control" formControlName="nom" required>
+    </label>
+    <label>
+      Prénom:
+      <input class="form-control" formControlName="prenom" required>
+    </label>
+    <label>
+      Âge:
+      <input class="form-control" type="number" formControlName="age" required>
+    </label>
+    <button class="btn btn-outline-primary btn-sm" type="submit">{{
+      personneForm.get('id')?.value === 0 ? 'Ajouter' :
+      'Modifier' }}</button>
+  </form>
+  
+  <ul class="container my-3">
+    <h3>Liste des personnees </h3>
+    <li *ngFor="let personne of personnes" class="my-2">
+      {{ personne.nom }} {{ personne.prenom }} ({{ personne.age }} ans)
+    </li>
+  </ul>

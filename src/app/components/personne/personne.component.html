@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let person of personnes">
+      {{ person.id }}  {{ person.nom }} {{ person.prenom }} - {{ person.age }} ans
+      <button type="button" class="btn btn-primary" (click)=" selectPersonne(person)">Modifier</button>
+      <button type="button" class="btn btn-danger" (click)="supprimerPersonne(person.id)">Supprimer</button>
+    </li>
+  </ul>
+  
+  <app-edit-person-modal [personne]="selectedPersonne"></app-edit-person-modal> 
+  
